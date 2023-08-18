@@ -1,6 +1,6 @@
 import axios from 'axios';
 import styles from './ParticularMovieScreen.module.css';
-import { APIKEY, IMGURL, PARTURL } from '../../config/config';
+import { APIKEY, BASEURL, IMGURL, PARTURL } from '../../config/config';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +32,7 @@ const ParticularMovieScreen = () => {
 
     const fetchDirectorName = async () => {
       try {
-        const { data } = await axios.get(`${PARTURL}/${movieId}/credits?api_key=${APIKEY}`);
+        const { data } = await axios.get(`${BASEURL}/movie/${movieId}/credits?api_key=${APIKEY}`);
         const _director = data.crew.find(c => c.job === "Director");
         const _cast = data.cast.map(cast => ({ id: cast.cast_id, department: cast.known_for_department, name: cast.name }));
         SetCast(_cast);

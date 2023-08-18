@@ -9,7 +9,7 @@ const initialState={
 }
 
 export const fetchMoviesAsync=createAsyncThunk(`movies/fetchMovies`,async()=>{
-    const response =await axios.get(`${BASEURL}?api_key=${APIKEY}`)
+    const response =await axios.get(`${BASEURL}/discover/movie?api_key=${APIKEY}`)
     return response.data
 })
 

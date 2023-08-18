@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { APIKEY, PARTURL } from "../../config/config";
+import { APIKEY, BASEURL, PARTURL } from "../../config/config";
 
 const initialState={
     movie:{},
@@ -8,7 +8,7 @@ const initialState={
     error:null,
 }
 export const fetchParticularMovie=createAsyncThunk('movie/fetchMovie',async(movieId)=>{
-    const response= await axios.get(`${PARTURL}/${movieId}?api_key=${APIKEY}`)
+    const response= await axios.get(`${BASEURL}/movie/${movieId}?api_key=${APIKEY}`)
     return response.data
 })
 const movieDetailSlice=createSlice({
