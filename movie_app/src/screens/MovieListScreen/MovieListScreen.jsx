@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { APIKEY, BASEURL } from '../../config/config'
+import styles from './MovieListScreen.module.css'
+import MovieCard from '../../components/MovieCard/MovieCard'
 const MovieListScreen = () => {
   const [movieList, SetMovieList] = useState([])
   useEffect(() => {
@@ -17,7 +19,12 @@ const MovieListScreen = () => {
     fetchMovieAsync()
   }, [])
   return (
-    <div>{movieList?.map(movie => (<li>{movie.title}</li>))}</div>
+    <div className={styles['movie-list-container']}>
+      <h2>Movie List</h2>
+      <div className={styles.movieList}>
+      {movieList?.map(movie => (<MovieCard movie={movie} />))}
+      </div>
+    </div>
   )
 }
 

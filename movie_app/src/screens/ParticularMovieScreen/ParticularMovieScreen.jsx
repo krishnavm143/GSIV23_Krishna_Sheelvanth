@@ -1,5 +1,4 @@
-import React from 'react'
-
+import styles from './ParticularMovieScreen.module.css'
 const ParticularMovieScreen = () => {
   return (
     <div>ParticularMovieScreen</div>

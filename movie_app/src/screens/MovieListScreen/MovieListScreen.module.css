@@ -1,0 +1,11 @@
+.movie-list-container{
+    text-align: center;
+    margin: 10px 10px;
+    padding: 10px;
+}
+
+.movieList{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
